@@ -13,6 +13,7 @@ function Cap2() {
   useLayoutEffect(() => {
     const { title, content1, lightBall, spanContent } = refs.current;
     gsap.registerPlugin(ScrollTrigger);
+    
     gsap.from(title.current, {
       scrollTrigger: {
         start: "top bottom",
@@ -20,7 +21,7 @@ function Cap2() {
         trigger: title.current,
         scrub: 1,
       },
-      x: -600,
+      x: -20,
       opacity: 0,
       delay: 0.5,
     });
