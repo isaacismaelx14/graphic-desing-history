@@ -13,18 +13,23 @@ function Cap2() {
   useLayoutEffect(() => {
     const { title, content1, lightBall, spanContent } = refs.current;
     gsap.registerPlugin(ScrollTrigger);
-    
-    gsap.from(title.current, {
-      scrollTrigger: {
-        start: "top bottom",
-        end: "bottom center",
-        trigger: title.current,
-        scrub: 1,
-      },
-      x: -20,
-      opacity: 0,
-      delay: 0.5,
-    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          start: "top bottom",
+          end: "bottom center",
+          trigger: title.current,
+          scrub: 1,
+        },
+      })
+      .from(title.current, {
+        x: -20,
+        opacity: 0,
+        delay: 0.5,
+      })
+      .to(title.current, {
+        x: 60,
+      });
 
     gsap
       .timeline({
@@ -111,6 +116,7 @@ function Cap2() {
         }
         #chapter-2 .content-1 span {
           font-size: 2.5em;
+          margin-buttom: 50px;
         }
 
         #chapter-2 .lightball {
