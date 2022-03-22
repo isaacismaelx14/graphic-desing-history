@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header styles={styles} />
-      <Cap1 />
+      {/* <Cap1 /> */}
       <Cap2 />
       <div className={styles.content}></div>
     </div>
