@@ -71,6 +71,7 @@ function Cap2() {
             Del Griego: Foto (luz) y graifa (escritura)
           </span>
         </div>
+        <div className="content-2"></div>
       </section>
 
       <style jsx>{`
@@ -105,15 +106,6 @@ function Cap2() {
           align-items: center;
         }
 
-        #chapter-2 .content-1::before {
-          content: "";
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          height: 400px;
-          background: #194892;
-        }
         #chapter-2 .content-1 span {
           font-size: 2.5em;
           margin-buttom: 50px;
@@ -122,6 +114,13 @@ function Cap2() {
         #chapter-2 .lightball {
           width: 50px;
           height: 50px;
+        }
+
+        #chapter-2 .content-2 {
+          background: #194892;
+          color: #fff;
+          width: 100%;
+          min-height: 100vh;
         }
       `}</style>
     </>
