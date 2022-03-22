@@ -106,6 +106,15 @@ function Cap2() {
           align-items: center;
         }
 
+        #chapter-2 .content-1::before {
+          content: "";
+          position: absolute;
+          top: 99%;
+          left: 0;
+          width: 100%;
+          height: 50px;
+          background: #194892;
+        }
         #chapter-2 .content-1 span {
           font-size: 2.5em;
           margin-buttom: 50px;
