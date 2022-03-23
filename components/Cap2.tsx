@@ -248,8 +248,10 @@ function Cap2() {
                 className="img-2"
               />
             </div>
-            <div className="content-lines">
-              <h2 className="title-lines">En 1844</h2>
+            <div className="content-lines" style={{ textAlign: "center" }}>
+              <h2 className="title-lines" style={{ textAlign: "center" }}>
+                En 1844
+              </h2>
               <span className="pagraph">
                 Se publicó el primer libro ilustrado con fotografías.
               </span>
