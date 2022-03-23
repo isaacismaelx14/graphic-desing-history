@@ -38,3 +38,12 @@ a {
   border-radius: 80px;
 
 }
+#chapter-2 .content-2 .lines.lh img {
+  border-radius: 0;
+}
+#chapter-2 .content-2 .lines.lh img.img-1 {
+  border-radius: 80px 0 0px 80px;
+}
+#chapter-2 .content-2 .lines.lh img.img-2 {
+  border-radius: 0 80px 80px 0;
+}

@@ -9,13 +9,16 @@ function Cap2() {
     title: useRef(null),
     content1: useRef(null),
     content2: useRef(null),
+    content3: useRef(null),
+    content4: useRef(null),
     lightBall: useRef(null),
     spanContent: useRef(null),
-    content3: useRef(null),
   });
 
   useLayoutEffect(() => {
-    const { title, content1, lightBall, spanContent, content3 } = refs.current;
+    if (false) return;
+    const { title, content1, lightBall, spanContent, content3, content4 } =
+      refs.current;
     const scrollTriggerLines = {
       start: "top bottom",
       end: "center center",
@@ -76,6 +79,31 @@ function Cap2() {
       })
       .from("#chapter-2 .title__content-3 .title__t", {
         scale: 0,
+      });
+
+    animation
+      .createScrollTriggerTimeLine({
+        target: content4.current,
+        scrollConfig: {
+          start: "center center",
+          end: "bottom top",
+          pin: true,
+        },
+      })
+      .from("#chapter-2 .lines.lh .content-lines", {
+        scale: 1.4,
+      })
+      .from("#chapter-2 .lines.lh .img-1", {
+        x: "-400px",
+        opacity: 0,
+      })
+      .from("#chapter-2 .lines.lh .img-2", {
+        x: "400px",
+        opacity: 0,
+      })
+      .from("#chapter-2 .lines.lh .image-caption", {
+        y: "400px",
+        opacity: 0,
       });
 
     animation.from("#chapter-2 .title__content-3 .emoji", {
@@ -177,6 +205,62 @@ function Cap2() {
             </span>
           </div>
         </div>
+        <div
+          className="content-2"
+          ref={refs.current.content2}
+          style={{ paddingTop: "120px" }}
+        >
+          <div className="lines l3">
+            <div className="img">
+              <Image
+                src="/img/william-henry-talbot.png"
+                alt="William Henry Talbot"
+                width="450px"
+                height="590px"
+              />
+            </div>
+            <div className="content-lines">
+              <h2 className="title-lines">En 1841</h2>
+              <span className="pagraph">
+                William Henry Talbot fue quien superó el problema con lo que él
+                llamó &quot;calotipos&quot; Con sus &quot;calotipos&quot; se
+                obtenían unos negativos que luego debían ser traspasados a
+                positivos en otras hojas.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="content-4" ref={refs.current.content4}>
+          <div className="lines lh">
+            <div className="img">
+              <Image
+                src="/img/first_book.jpg"
+                alt="Louis Mandé"
+                width="400px"
+                height="490px"
+                className="img-1"
+              />
+              <Image
+                src="/img/first_book_pic.jpg"
+                alt="Louis Mandé"
+                width="550px"
+                height="490px"
+                className="img-2"
+              />
+            </div>
+            <div className="content-lines">
+              <h2 className="title-lines">En 1844</h2>
+              <span className="pagraph">
+                Se publicó el primer libro ilustrado con fotografías.
+              </span>
+            </div>
+            <div className="image-caption">
+              <span className="title-lines">
+                <strong>&quot;The Pencil of Nature&quot;</strong>
+              </span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <style jsx>{`
@@ -245,40 +329,54 @@ function Cap2() {
           padding: 30px 50px;
           padding-bottom: 150px;
         }
-        #chapter-2 .content-2 .lines {
+        #chapter-2 .lines {
           display: flex;
           justify-content: center;
           align-items: center;
           gap: 40px;
         }
-        #chapter-2 .content-2 .img {
-          border-radius: 80px;
-          background: var(--color-1);
-          box-shadow: 0 0 15pt 10pt var(--color-1);
-          padding: 10px;
+        #chapter-2 .lines.lh {
+          padding-top: 90px;
+          flex-direction: column;
+          position: relative;
         }
-        #chapter-2 .content-2 .lines.reverse {
+        #chapter-2 .lines.lh .content-lines {
+          flex-direction: column;
+          position: absolute;
+        }
+
+        #chapter-2 .lines.lh .img {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          z-index: 44;
+        }
+
+        #chapter-2 .lines.reverse {
           flex-direction: row-reverse;
         }
 
-        #chapter-2 .content-2 .content-lines {
+        #chapter-2 .content-lines {
           width: 50%;
           font-size: 30px;
           text-align: left;
         }
-        #chapter-2 .content-2 .content-lines .title-lines {
+        #chapter-2 .title-lines {
           font-size: 40px;
           text-align: justify;
           margin: 0;
           padding: 0;
           color: var(--color-1);
         }
-        #chapter-2 .content-2 .lines.reverse .content-lines {
+        #chapter-2 .lines.reverse .content-lines {
           text-align: right;
         }
-        #chapter-2 .content-2 .lines.reverse .title-lines {
+        #chapter-2 .lines.reverse .title-lines {
           text-align: right;
         }
+
         #chapter-2 .title__content-3 {
           background: #000;
           width: 100%;
@@ -297,8 +395,14 @@ function Cap2() {
         #chapter-2 .title__content-3 .emoji {
           font-size: 230px;
           text-align: center;
-
           width: 60%;
+        }
+
+        #chapter-2 .content-4 {
+          background: #194892;
+          color: #fff;
+          width: 100%;
+          min-height: 100vh;
         }
       `}</style>
     </>
