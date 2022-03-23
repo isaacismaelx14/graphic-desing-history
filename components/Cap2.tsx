@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { LightBall } from "./Assets";
 import Image from "next/image";
 import useAnimation from "../hooks/useAnimation";
@@ -15,7 +15,7 @@ function Cap2() {
     spanContent: useRef(null),
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (false) return;
     const { title, content1, lightBall, spanContent, content3, content4 } =
       refs.current;
