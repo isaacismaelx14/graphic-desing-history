@@ -203,6 +203,13 @@ function Cap2() {
         "<"
       )
       .to(
+        "#chapter-2 .content-5 .slide-2 .text",
+        {
+          scale: 1.1,
+        },
+        ">"
+      )
+      .to(
         "#chapter-2 .content-5 .slide-2",
         {
           x: -innerWidth * 1,
@@ -233,7 +240,13 @@ function Cap2() {
         },
         "<"
       )
-
+      .to(
+        "#chapter-2 .content-5 .slide-3 .text",
+        {
+          scale: 1.1,
+        },
+        ">"
+      )
       .to(
         "#chapter-2 .content-5 .slide-3",
         {
@@ -264,6 +277,13 @@ function Cap2() {
           x: 500,
         },
         "<"
+      )
+      .to(
+        "#chapter-2 .content-5 .slide-4 .text",
+        {
+          scale: 1.1,
+        },
+        ">"
       )
       .to("#chapter-2 .content-5 .slide-4", {}, "+=1");
   }, [animation]);
@@ -369,6 +389,7 @@ function Cap2() {
                 width="400px"
                 height="490px"
                 className="img-1"
+                priority
               />
               <Image
                 src="/img/first_book_pic.jpg"
@@ -407,7 +428,13 @@ function Cap2() {
               </span>
             </div>
             <div className="image">
-              <Image src="/img/kodak_camera.jpg" alt="kodak" layout="fill" />
+              <Image
+                src="/img/kodak_camera.jpg"
+                alt="kodak"
+                layout="fill"
+                className={"image-responsive"}
+                priority
+              />
             </div>
           </div>
           <div className="slide-3 slide">
@@ -419,13 +446,18 @@ function Cap2() {
               </span>
             </div>
             <div className="image">
-              <Image src="/img/gun_camera.jpg" alt="gun camera" layout="fill" />
+              <Image
+                src="/img/gun_camera.jpg"
+                alt="gun camera"
+                layout="fill"
+                className={"image-responsive"}
+              />
             </div>
           </div>
           <div className="slide-4 slide">
             <div className="text">
               <span className="pagraph">
-                La mejora de las cámaras de 35 mm. que siguió a la segunda
+                La mejora de las cámaras de 35 mm, que siguió a la segunda
                 guerra mundial, hizo que las cámaras para película en rollo
                 fuesen perdiendo popularidad. Actualmente los únicos modelos que
                 sobreviven son de extraordinaria calidad y los usan
@@ -438,6 +470,7 @@ function Cap2() {
                 src="/img/kodak_35mm_camera.jpg"
                 alt="kodak 35-mm"
                 layout="fill"
+                className={"image-responsive"}
               />
             </div>
           </div>
@@ -620,12 +653,18 @@ function Cap2() {
           background: #fdfd;
         }
         #chapter-2 .content-5 .image {
-          position: absolute;
+          position: fixed;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
+          z-index: -1;
         }
+
+        #chapter-2 .content-5 .image > div {
+          position: unset !important;
+        }
+
         #chapter-2 .content-5 .text {
           position: relative;
           color: #fff;

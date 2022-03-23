@@ -2,7 +2,7 @@
   --color-primary: #194892;
   --color-1: #ffd330;
   --color-2: #008e87;
-  
+
   --color-a-1: #300166;
 }
 
@@ -37,10 +37,16 @@ a {
   min-height: 100vh;
 }
 
+.image-responsive {
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
 #chapter-2 .content-2 img {
   border-radius: 80px;
   background-color: var(--color-1);
-
 }
 #chapter-2 .content-2 .lines.lh img {
   border-radius: 0;
