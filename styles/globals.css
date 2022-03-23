@@ -1,6 +1,9 @@
 :root {
+  --color-primary: #194892;
   --color-1: #ffd330;
   --color-2: #008e87;
+  
+  --color-a-1: #300166;
 }
 
 html,

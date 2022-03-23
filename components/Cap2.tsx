@@ -11,14 +11,22 @@ function Cap2() {
     content2: useRef(null),
     content3: useRef(null),
     content4: useRef(null),
+    content5: useRef(null),
     lightBall: useRef(null),
     spanContent: useRef(null),
   });
 
   useEffect(() => {
     if (false) return;
-    const { title, content1, lightBall, spanContent, content3, content4 } =
-      refs.current;
+    const {
+      title,
+      content1,
+      lightBall,
+      spanContent,
+      content3,
+      content4,
+      content5,
+    } = refs.current;
     const scrollTriggerLines = {
       start: "top bottom",
       end: "center center",
@@ -140,12 +148,130 @@ function Cap2() {
         y: "400px",
         opacity: 0,
       });
+
+    animation.to("#chapter-2 .content-5 .slide-2", {
+      x: -innerWidth * 1,
+      opacity: 0,
+    });
+    animation.to("#chapter-2 .content-5 .slide-3", {
+      x: -innerWidth * 1,
+      opacity: 0,
+    });
+    animation.to("#chapter-2 .content-5 .slide-4", {
+      x: -innerWidth * 1,
+      opacity: 0,
+    });
+
+    animation
+      .createScrollTriggerTimeLine({
+        target: content5.current,
+        scrollConfig: {
+          start: "center center",
+          end: "bottom top",
+          scrub: 1.5,
+          pin: true,
+        },
+      })
+      .to(
+        "#chapter-2 .content-5 .slide-1",
+        {
+          x: -innerWidth * 1,
+        },
+        "=0.3"
+      )
+      .from(
+        "#chapter-2 .content-5 .slide-2",
+        {
+          x: innerWidth * 1,
+          opacity: 1,
+        },
+        "-=0.5"
+      )
+      .to(
+        "#chapter-2 .content-5 .slide-2 img",
+        {
+          webkitFilter: "blur(5px)",
+        },
+        "+=0.6"
+      )
+      .from(
+        "#chapter-2 .content-5 .slide-2 .text",
+        {
+          opacity: 0,
+          y: 400,
+        },
+        "<"
+      )
+      .to(
+        "#chapter-2 .content-5 .slide-2",
+        {
+          x: -innerWidth * 1,
+        },
+        "=0.3"
+      )
+
+      .from(
+        "#chapter-2 .content-5 .slide-3",
+        {
+          x: innerWidth * 1,
+          opacity: 1,
+        },
+        "-=0.5"
+      )
+      .to(
+        "#chapter-2 .content-5 .slide-3 img",
+        {
+          webkitFilter: "blur(5px)",
+        },
+        "+=0.6"
+      )
+      .from(
+        "#chapter-2 .content-5 .slide-3 .text",
+        {
+          opacity: 0,
+          x: -500,
+        },
+        "<"
+      )
+
+      .to(
+        "#chapter-2 .content-5 .slide-3",
+        {
+          x: -innerWidth * 1,
+        },
+        "=0.3"
+      )
+
+      .from(
+        "#chapter-2 .content-5 .slide-4",
+        {
+          x: innerWidth * 1,
+          opacity: 1,
+        },
+        "-=0.5"
+      )
+      .to(
+        "#chapter-2 .content-5 .slide-4 img",
+        {
+          webkitFilter: "blur(5px)",
+        },
+        "+=0.6"
+      )
+      .from(
+        "#chapter-2 .content-5 .slide-4 .text",
+        {
+          opacity: 0,
+          x: 500,
+        },
+        "<"
+      )
+      .to("#chapter-2 .content-5 .slide-4", {}, "+=1");
   }, [animation]);
 
   return (
     <>
       <section id="chapter-2">
-        <div className="title">
+        <div className="title-main">
           <h2 ref={refs.current.title}>
             Capítulo 2: El nacimiento de la fotografía
           </h2>
@@ -267,6 +393,55 @@ function Cap2() {
             </div>
           </div>
         </div>
+        <div className="content-5" ref={refs.current.content5}>
+          <div className="slide-1 slide">
+            <h2 className="title">La cámara fotográfica</h2>
+          </div>
+          <div className="slide-2 slide">
+            <div className="text">
+              <span className="pagraph">
+                La revolución fotográfica provocada por George Eastman con el
+                lanzamiento de las primeras cámaras Kodak portátiles y sus
+                películas prefabricadas, todas las cámaras utilizaban placas y
+                película en hojas, emulsionadas por el propio fotógrafo.
+              </span>
+            </div>
+            <div className="image">
+              <Image src="/img/kodak_camera.jpg" alt="kodak" layout="fill" />
+            </div>
+          </div>
+          <div className="slide-3 slide">
+            <div className="text">
+              <span className="pagraph">
+                A finales del siglo pasado, con la novedad de la fotografía,
+                aparecieron cámaras curiosísimas tales como sombreros-cámara,
+                relojes-cámara e incluso pistolas-cámara
+              </span>
+            </div>
+            <div className="image">
+              <Image src="/img/gun_camera.jpg" alt="gun camera" layout="fill" />
+            </div>
+          </div>
+          <div className="slide-4 slide">
+            <div className="text">
+              <span className="pagraph">
+                La mejora de las cámaras de 35 mm. que siguió a la segunda
+                guerra mundial, hizo que las cámaras para película en rollo
+                fuesen perdiendo popularidad. Actualmente los únicos modelos que
+                sobreviven son de extraordinaria calidad y los usan
+                mayoritariamente los profesionales debido a su mayor tamaño de
+                negativo.
+              </span>
+            </div>
+            <div className="image">
+              <Image
+                src="/img/kodak_35mm_camera.jpg"
+                alt="kodak 35-mm"
+                layout="fill"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       <style jsx>{`
@@ -277,14 +452,14 @@ function Cap2() {
           height: 100%;
         }
 
-        #chapter-2 .title {
+        #chapter-2 .title-main {
           background-color: #000;
           padding: 130px 70px;
           width: 100%;
           color: #fff;
         }
 
-        #chapter-2 .title h2 {
+        #chapter-2 .title-main h2 {
           font-size: 3.5em;
         }
 
@@ -308,7 +483,7 @@ function Cap2() {
           left: 0;
           width: 100%;
           height: 50px;
-          background: #194892;
+          background: var(--color-primary);
         }
         #chapter-2 .content-1 span {
           font-size: 2.5em;
@@ -321,7 +496,7 @@ function Cap2() {
         }
 
         #chapter-2 .content-2 {
-          background: #194892;
+          background: var(--color-primary);
           color: #fff;
           width: 100%;
           min-height: 100vh;
@@ -405,10 +580,64 @@ function Cap2() {
         }
 
         #chapter-2 .content-4 {
-          background: #194892;
+          background: var(--color-primary);
           color: #fff;
           width: 100%;
           min-height: 100vh;
+        }
+
+        #chapter-2 .content-5 {
+          background: rgb(25, 72, 146);
+          background: linear-gradient(
+            180deg,
+            rgba(25, 72, 146, 1) 0%,
+            rgba(48, 1, 102, 1) 100%
+          );
+          color: #fff;
+          width: 100%;
+          min-height: 100vh;
+          display: flex;
+          position: relative;
+        }
+
+        #chapter-2 .content-5 .title {
+          font-size: 3.5em;
+          font-weight: 100;
+        }
+
+        #chapter-2 .content-5 .slide {
+          position: absolute;
+          width: 100vw;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        #chapter-2 .content-5 .slide-1 {
+          background: #000;
+        }
+        #chapter-2 .content-5 .slide-2 {
+          background: #fdfd;
+        }
+        #chapter-2 .content-5 .image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        #chapter-2 .content-5 .text {
+          position: relative;
+          color: #fff;
+          font-weight: 200;
+          z-index: 44;
+          font-size: 40px;
+          text-align: justify;
+          width: 80%;
+          background: #000000d6;
+          padding: 33px 69px;
+          padding: 10px 20px;
+          border-radius: 20px;
         }
       `}</style>
     </>
