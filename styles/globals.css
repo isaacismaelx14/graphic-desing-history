@@ -36,6 +36,7 @@ a {
 
 #chapter-2 .content-2 img {
   border-radius: 80px;
+  background-color: var(--color-1);
 
 }
 #chapter-2 .content-2 .lines.lh img {
