@@ -29,6 +29,7 @@ function Cap2() {
       x: -100,
       opacity: 0,
     });
+
     animation
       .createScrollTriggerTimeLine({
         target: title.current,
@@ -79,31 +80,9 @@ function Cap2() {
       })
       .from("#chapter-2 .title__content-3 .title__t", {
         scale: 0,
-      });
-
-    animation
-      .createScrollTriggerTimeLine({
-        target: content4.current,
-        scrollConfig: {
-          start: "center center",
-          end: "bottom top",
-          pin: true,
-        },
       })
-      .from("#chapter-2 .lines.lh .content-lines", {
-        scale: 1.4,
-      })
-      .from("#chapter-2 .lines.lh .img-1", {
-        x: "-400px",
-        opacity: 0,
-      })
-      .from("#chapter-2 .lines.lh .img-2", {
-        x: "400px",
-        opacity: 0,
-      })
-      .from("#chapter-2 .lines.lh .image-caption", {
-        y: "400px",
-        opacity: 0,
+      .to("#chapter-2 .title__content-3", {
+        background: "#194892",
       });
 
     animation.from("#chapter-2 .title__content-3 .emoji", {
@@ -136,6 +115,31 @@ function Cap2() {
         x: innerWidth * 1,
       }
     );
+
+    animation
+      .createScrollTriggerTimeLine({
+        target: content4.current,
+        scrollConfig: {
+          start: "center center",
+          end: "bottom top",
+          pin: true,
+        },
+      })
+      .from("#chapter-2 .lines.lh .content-lines", {
+        scale: 1.4,
+      })
+      .from("#chapter-2 .lines.lh .img-1", {
+        x: "-400px",
+        opacity: 0,
+      })
+      .from("#chapter-2 .lines.lh .img-2", {
+        x: "400px",
+        opacity: 0,
+      })
+      .from("#chapter-2 .lines.lh .image-caption", {
+        y: "400px",
+        opacity: 0,
+      });
   }, [animation]);
 
   return (

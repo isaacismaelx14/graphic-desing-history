@@ -1,9 +1,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useState } from "react";
+import { useEffect } from "react";
 
 function useAnimation(aProps?: useAnimationProps): useAnimation {
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!aProps) return;
     if (aProps.scrollTrigger) {
       gsap.registerPlugin(ScrollTrigger);
