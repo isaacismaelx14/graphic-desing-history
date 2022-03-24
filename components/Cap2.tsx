@@ -363,7 +363,7 @@ function Cap2() {
           <div className="lines l3">
             <div className="img">
               <Image
-                src="/img/william-henry-talbot.png"
+                src="/img/william-henry-talbot.jpg"
                 alt="William Henry Talbot"
                 width="450px"
                 height="590px"
