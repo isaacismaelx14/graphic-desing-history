@@ -13,9 +13,7 @@ function useAnimation(aProps?: useAnimationProps): useAnimation {
   const createTimeLine = (config: gsap.AttrVars): gsap.core.Timeline =>
     gsap.timeline(config);
 
-  const createScrollTriggerTimeLine = (
-    props: createSTLProps
-  ): gsap.core.Timeline => {
+  const scrollTimeLine = (props: createSTLProps): gsap.core.Timeline => {
     if (!aProps?.scrollTrigger) throw new Error("scrollConfig is required", {});
 
     const defaultC = {
@@ -47,11 +45,39 @@ function useAnimation(aProps?: useAnimationProps): useAnimation {
     });
   };
 
+  const from = (
+    target: gsap.TweenTarget,
+    vars: gsap.TweenVars
+  ): gsap.core.Tween => {
+    let scrollTrigger = undefined;
+    if (vars.scrollTrigger) {
+      scrollTrigger = {
+        trigger: target,
+        ...(vars as any).scrollTrigger,
+      };
+    }
+    return gsap.from(target, { ...vars, scrollTrigger });
+  };
+
+  const to = (
+    target: gsap.TweenTarget,
+    vars: gsap.TweenVars
+  ): gsap.core.Tween => {
+    let scrollTrigger = undefined;
+    if (vars.scrollTrigger) {
+      scrollTrigger = {
+        trigger: target,
+        ...(vars as any).scrollTrigger,
+      };
+    }
+    return gsap.to(target, { ...vars, scrollTrigger });
+  };
+
   return {
     createTimeLine,
-    createScrollTriggerTimeLine,
-    from: gsap.from,
-    to: gsap.to,
+    scrollTimeLine,
+    from,
+    to,
     fromTo: gsap.fromTo,
     multiFrom,
   };
@@ -73,7 +99,7 @@ type createSTLProps = {
 
 interface useAnimation {
   createTimeLine: (config: gsap.AttrVars) => gsap.core.Timeline;
-  createScrollTriggerTimeLine: (props: createSTLProps) => gsap.core.Timeline;
+  scrollTimeLine: (props: createSTLProps) => gsap.core.Timeline;
   from: (target: gsap.TweenTarget, vars: gsap.TweenVars) => gsap.core.Tween;
   to: (target: gsap.TweenTarget, vars: gsap.TweenVars) => gsap.core.Tween;
   fromTo: (

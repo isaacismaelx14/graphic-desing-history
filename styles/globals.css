@@ -1,8 +1,8 @@
 :root {
   --color-primary: #194892;
   --color-1: #ffd330;
-  --color-2: #008e87;
 
+  --color-2: #008e87;
   --color-a-1: #300166;
 }
 
@@ -44,16 +44,86 @@ a {
   height: unset !important;
 }
 
-#chapter-2 .content-2 img {
+.image div {
+  position: unset !important;
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+.darken {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  backdrop-filter: brightness(0.3);
+}
+
+.on-blur {
+  z-index: 1;
+}
+
+#chapter-1 .title-main {
+  background: #181818;
+}
+
+#chapter-1 .content-1.renaissance {
+  background: url("/img/renaissance_art_1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#chapter-1 .content-3 {
+  background: url("/img/imprenta.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#chapter-1 .content-1 .container {
+  color: #fff;
+  /* background: rgba(255, 255, 255, 0.466); */
+}
+
+#chapter-1 .content-1 .container .title span.main {
+  text-shadow: 0 0 35px rgba(255, 209, 5, 0.616);
+
+  color: rgb(255, 214, 160);
+}
+
+
+
+img.ignoredefaultRadius {
+  border-radius: 0;
+}
+
+#chapter-2 .content-2 .lines.lh img {
+  border-radius: 0 !important;
+}
+
+#chapter-2 img.img-1 {
+  border-radius: 80px 0 0px 80px ;
+}
+
+#chapter-2 img.img-2 {
+
+  border-radius: 0 80px 80px 0;
+}
+
+img {
   border-radius: 80px;
   background-color: var(--color-1);
 }
-#chapter-2 .content-2 .lines.lh img {
-  border-radius: 0;
-}
-#chapter-2 .content-2 .lines.lh img.img-1 {
-  border-radius: 80px 0 0px 80px;
-}
-#chapter-2 .content-2 .lines.lh img.img-2 {
-  border-radius: 0 80px 80px 0;
+
+img.round-img{
+  border-radius: 35px;
 }

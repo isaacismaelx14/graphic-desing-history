@@ -39,7 +39,7 @@ function Cap2() {
     });
 
     animation
-      .createScrollTriggerTimeLine({
+      .scrollTimeLine({
         target: title.current,
         scrollConfig: {
           start: "top bottom",
@@ -56,7 +56,7 @@ function Cap2() {
       });
 
     animation
-      .createScrollTriggerTimeLine({
+      .scrollTimeLine({
         target: content1.current,
         scrollConfig: {
           start: "center center",
@@ -78,7 +78,7 @@ function Cap2() {
       });
 
     animation
-      .createScrollTriggerTimeLine({
+      .scrollTimeLine({
         target: content3.current,
         scrollConfig: {
           start: "center center",
@@ -125,7 +125,7 @@ function Cap2() {
     );
 
     animation
-      .createScrollTriggerTimeLine({
+      .scrollTimeLine({
         target: content4.current,
         scrollConfig: {
           start: "center center",
@@ -163,7 +163,7 @@ function Cap2() {
     });
 
     animation
-      .createScrollTriggerTimeLine({
+      .scrollTimeLine({
         target: content5.current,
         scrollConfig: {
           start: "center center",
@@ -397,6 +397,7 @@ function Cap2() {
                 width="550px"
                 height="490px"
                 className="img-2"
+                priority
               />
             </div>
             <div className="content-lines" style={{ textAlign: "center" }}>
@@ -432,7 +433,7 @@ function Cap2() {
                 src="/img/kodak_camera.jpg"
                 alt="kodak"
                 layout="fill"
-                className={"image-responsive"}
+                className={"image-responsive ignoredefaultRadius"}
                 priority
               />
             </div>
@@ -450,7 +451,7 @@ function Cap2() {
                 src="/img/gun_camera.jpg"
                 alt="gun camera"
                 layout="fill"
-                className={"image-responsive"}
+                className={"image-responsive ignoredefaultRadius"}
               />
             </div>
           </div>
@@ -470,7 +471,7 @@ function Cap2() {
                 src="/img/kodak_35mm_camera.jpg"
                 alt="kodak 35-mm"
                 layout="fill"
-                className={"image-responsive"}
+                className={"image-responsive ignoredefaultRadius"}
               />
             </div>
           </div>
