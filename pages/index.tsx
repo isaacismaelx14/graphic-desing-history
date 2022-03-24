@@ -14,7 +14,16 @@ const Home: NextPage = () => {
       <Header styles={styles} />
       <Cap1 />
       <Cap2 />
-      <div className={styles.content}></div>
+      <div className={styles.content}></div>{" "}
+      <style jsx global>
+        {`
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+        `}
+      </style>
     </div>
   );
 };
