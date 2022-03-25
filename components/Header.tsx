@@ -1,8 +1,9 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useRef } from "react";
-import { Circle1, Montain1, Montain2, Montain3 } from "./Assets";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+function getRandomInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 type IProps = {
   styles: { readonly [key: string]: string };
 };
@@ -10,60 +11,89 @@ type IProps = {
 function Header({ styles }: IProps) {
   const HeaderRef = useRef<HTMLDivElement>(null);
   const HeaderTitleRef = useRef<any>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!HeaderRef.current) return;
+    const count = 150,
+      particleClass = "particle",
+      particleColors = ["#ffffffb7", "#ffffffd0"],
+      container = HeaderRef.current,
+      w = container.offsetWidth,
+      h = container.offsetHeight;
+    let elem;
+
+    for (var i = 0; i < count; i++) {
+      elem = document.createElement("div");
+      elem.className = particleClass;
+      elem.style.width = elem.style.height = Math.random() * 10 + "px";
+      elem.style.top = Math.random() * h + "px";
+      elem.style.left = Math.random() * w + "px";
+      elem.style.background = particleColors[Math.floor(Math.random() * 4)];
+      container.appendChild(elem);
+      gsap.set(elem, {
+        x: gsap.utils.random(0, w),
+        y: gsap.utils.random(0, h) - h * 0.7,
+        scale: gsap.utils.random(0.5, 1),
+        backgroundColor: gsap.utils.random(particleColors),
+      });
+      anime(elem);
+    }
+
+    function anime(elemnt: any) {
+      gsap.to(elemnt, gsap.utils.random(5, 10), {
+        y: h,
+        ease: "none",
+        repeat: -1,
+        delay: -10,
+      });
+      gsap.to(elemnt, gsap.utils.random(1, 6), {
+        x: "+=50",
+        ease: "power1.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+      gsap.to(elemnt, gsap.utils.random(1, 4), {
+        opacity: 0,
+        ease: "power1.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+    }
+  }, []);
 
   useEffect(() => {
     const HeaderTitle = HeaderTitleRef.current;
-    const Header = HeaderRef.current;
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(HeaderTitle, {
       scrollTrigger: {
         scrub: 1,
       },
-      y: 500,
-      delay: 0.5,
+      y: -2500,
+      color: "#fafafa",
     });
-
-    gsap.to(".montain", {
-      scrollTrigger: {
-        scrub: 1,
-      },
-      x: -100,
-      opacity: 0,
-    });
-
-    gsap.to(".montain2", {
-      scrollTrigger: {
-        scrub: 1,
-      },
-      x: -200,
-      scale: 1.6,
-    });
-    gsap.to(".montain3", {
-      scrollTrigger: {
-        scrub: 1,
-      },
-      x: -100,
-      opacity: 0,
-    });
-    gsap.to(".circle", {
-      scrollTrigger: {
-        scrub: 1,
-      },
-      y: -800,
-    });
+    const ram = getRandomInt(1, 4);
+    bgRef.current?.style.backgroundImage = `url("/img/backgrounds/bg-${ram}.jpg"`;
   }, []);
 
   return (
-    <section className={styles.header} ref={HeaderRef}>
-      <Circle1 className={`${styles.circle} circle`} />
-      <h2 className={`${styles.header_title} `} ref={HeaderTitleRef}>
+    <section className={`${styles.header} header`} ref={HeaderRef}>
+      <div className="apply-bg" ref={bgRef}></div>
+      <h2
+        className={`${styles.header_title} on_particle `}
+        ref={HeaderTitleRef}
+      >
         Historia del diseño gráfico
       </h2>
-      <div className={styles.m_group}>
-        <Montain2 className={`${styles.m_center} montain`} />
-        <Montain1 className={`${styles.m_right} montain2`} />
-        <Montain3 className={`${styles.m_left} montain3`} />
-      </div>
+      <style jsx>{`
+        .apply-bg {
+          filter: blur(20px);
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      `}</style>
     </section>
   );
 }
