@@ -73,7 +73,9 @@ function Header({ styles }: IProps) {
       color: "#fafafa",
     });
     const ram = getRandomInt(1, 4);
-    bgRef.current?.style.backgroundImage = `url("/img/backgrounds/bg-${ram}.jpg"`;
+    if (bgRef.current)
+      bgRef.current.style.backgroundImage = `url("/img/backgrounds/bg-${ram}.jpg"`;
+
   }, []);
 
   return (
