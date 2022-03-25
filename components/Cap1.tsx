@@ -268,22 +268,22 @@ function Cap1() {
 
     animation.from("#chapter-1 .content-2 .line-1 .text-content", {
       scrollTrigger: sTrigger,
-      y: -200,
+      y: -100,
       opacity: 0,
     });
     animation.from("#chapter-1 .content-2 .line-1 .image", {
       scrollTrigger: sTrigger,
-      y: 200,
+      y: 100,
       opacity: 0,
     });
     animation.from("#chapter-1 .content-2 .line-2 .text-content", {
       scrollTrigger: sTrigger,
-      x: -200,
+      x: -100,
       opacity: 0,
     });
     animation.from("#chapter-1 .content-2 .line-2 .image", {
       scrollTrigger: sTrigger,
-      x: 200,
+      x: 100,
       opacity: 0,
     });
   }, [animation]);
@@ -331,9 +331,7 @@ function Cap1() {
                 <span>
                   En Florencia, se inicio el diseño tipográfico del Johannes del
                   Spira, orfebre de Manguncia, publico su primer libro en
-                  Venecia,
-                  <strong>Epistolae ad familiares de cicerón</strong>. Sweyheym
-                  y Pannartz, lo reclamo como su invento original.
+                  Venecia, Epistolae ad familiares de cicerón.
                 </span>
               </div>
             </div>
@@ -352,8 +350,8 @@ function Cap1() {
               <div className="text-content">
                 <h2>1470</h2>
                 <span>
-                  se publica el primer libro tipográfico con los números de las
-                  páginas impresas
+                  Se publica el primer libro tipográfico con los números de las
+                  páginas impresas.
                 </span>
               </div>
             </div>
@@ -399,14 +397,7 @@ function Cap1() {
               <h2>Siglo XVII </h2>
               <p>
                 Este siglo se considera el comienzo de la historia del
-                periodismo en su sentido escrito
-              </p>
-              <p>
-                Tenían gran aceptación por el público y se convirtió en un medio
-                influyente, por tal razón los gobernantes prohibían su
-                distribución. Nacimiento y estabilización de las primeras
-                gacetas semanales. Pequeño formato de 4 pag. Sin opinión,
-                próxima al poder se vendía principalmente mediante suscripción.
+                periodismo en su sentido escrito.
               </p>
 
               <div className="image">
@@ -414,8 +405,8 @@ function Cap1() {
                   src={"/img/persons_imprenta.jpg"}
                   alt="Personas en una imprenta"
                   className="round-img"
-                  width={900}
-                  height={650}
+                  width={800}
+                  height={550}
                 />
               </div>
             </div>
@@ -428,7 +419,7 @@ function Cap1() {
               <h2>Siglo XIX</h2>
               <p>
                 Nació el primer diario francés impresas Napoleon tenían interés
-                en controlar los medios impresos
+                en controlar los medios impresos.
               </p>
               <p>Factores que influyeron en est siglo:</p>
 

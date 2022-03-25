@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import Cap1 from "../components/Cap1";
 import Cap2 from "../components/Cap2";
+import Cap3 from "../components/Cap3";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       <Header styles={styles} />
       <Cap1 />
       <Cap2 />
+      <Cap3 />
       <div className={styles.content}></div>{" "}
       <style jsx global>
         {`

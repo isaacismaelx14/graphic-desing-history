@@ -460,10 +460,7 @@ function Cap2() {
               <span className="pagraph">
                 La mejora de las cámaras de 35 mm, que siguió a la segunda
                 guerra mundial, hizo que las cámaras para película en rollo
-                fuesen perdiendo popularidad. Actualmente los únicos modelos que
-                sobreviven son de extraordinaria calidad y los usan
-                mayoritariamente los profesionales debido a su mayor tamaño de
-                negativo.
+                fuesen perdiendo popularidad.
               </span>
             </div>
             <div className="image">
@@ -671,9 +668,10 @@ function Cap2() {
           color: #fff;
           font-weight: 200;
           z-index: 44;
-          font-size: 40px;
+          font-size: 30px;
           text-align: justify;
           width: 80%;
+          max-width: 800px;
           background: #000000d6;
           padding: 33px 69px;
           padding: 10px 20px;
