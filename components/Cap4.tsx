@@ -86,7 +86,7 @@ function Cap4() {
 
             <div className="text-content con-5">
               <Image
-                src="/img/Surrealismo.jpg"
+                src="/img/surrealismo.jpg"
                 alt="Surrealismo"
                 width="320px"
                 height="450px"
