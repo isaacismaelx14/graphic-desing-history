@@ -35,13 +35,7 @@ function useAnimation(aProps?: useAnimationProps): useAnimation {
     vars: gsap.TweenVars
   ): gsap.core.Tween[] => {
     return targets.map((target) => {
-      return gsap.from(target, {
-        ...vars,
-        scrollTrigger: {
-          trigger: target,
-          ...(vars as any).scrollTrigger,
-        },
-      });
+      return from(target, vars);
     });
   };
 

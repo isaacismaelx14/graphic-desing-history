@@ -1,9 +1,9 @@
 :root {
   --color-primary: #194892;
   --color-1: #ffd330;
-
   --color-2: #008e87;
   --color-a-1: #300166;
+  --color-3: #3c2070;
 }
 
 html,
@@ -14,10 +14,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overflow-x: hidden;
+  font-size: 18px;
 }
 
 body {
   overflow: hidden;
+  background: #000;
 }
 
 a {
@@ -36,6 +38,7 @@ a {
   padding: 2em;
   width: 100%;
   min-height: 100vh;
+  margin-top: 0;
 }
 
 .image-responsive {
